@@ -1,0 +1,16 @@
+name: EA2 - Destroy cloud lab
+
+on:
+  workflow_dispatch:
+
+jobs:
+  destroy:
+    uses: asanchezo-duoc/AUY1104-SharedWorkflows/.github/workflows/ea2-aws-lab-purge.yaml@main
+
+    with:
+      s3_status_bucket: ${{ vars.EA2_S3_BUCKET }}
+
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
